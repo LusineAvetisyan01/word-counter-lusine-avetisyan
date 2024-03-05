@@ -1,0 +1,65 @@
+body {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+h1 {
+  text-align: center;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: stretch;
+}
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10px;
+}
+textarea {
+  display: block;
+  padding: 15px;
+}
+.stats {
+  padding: 15px 30px;
+  width: 100%;
+  height: -webkit-fill-available;
+}
+table tr th:nth-child(even) {
+  text-align: left;
+  padding: 0 10px;
+}
+table tr th:nth-child(odd) {
+  text-align: right;
+  padding: 0 10px;
+}
+button {
+  display: block;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+textarea,
+.stats,
+button {
+  font-size: 20px;
+  font-weight: 300;
+  background: rgba(250, 250, 250, 0.6);
+  border: 1px solid black;
+  border-radius: 10px;
+}
+button:hover {
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 991px) {
+  .container {
+    flex-direction: column;
+  }
+  .sub-container {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
