@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Counter Application</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Insert your text and get the metrics</h1>
+    <div class="container">
+      <textarea
+        id="text"
+        rows="15"
+        cols="50"
+        placeholder="Type here..."
+      ></textarea>
+
+      <div class="sub-container">
+        <table class="stats">
+          <tr class="stat">
+            <th id="letter-count">0</th>
+            <th>Letters</th>
+          </tr>
+          <tr class="stat">
+            <th id="word-count">0</th>
+            <th>Words</th>
+          </tr>
+          <tr class="stat">
+            <th id="sentence-count">0</th>
+            <th>Sentences</th>
+          </tr>
+          <tr class="stat">
+            <th id="char-count">0</th>
+            <th>Characters</th>
+          </tr>
+          <tr class="stat">
+            <th id="digit-count">0</th>
+            <th>Digits</th>
+          </tr>
+        </table>
+        <button onclick="random_background()">Generate a background</button>
+      </div>
+    </div>
+
+    <script src="js/counter.js"></script>
+    <script src="js/background.js"></script>
+  </body>
+</html>
