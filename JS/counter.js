@@ -1,23 +1,24 @@
-let textContent = document.getElementById("text");
-let charCount = document.getElementById("char-count");
-let wordCount = document.getElementById("word-count");
-let letterCount = document.getElementById("letter-count");
-let sentenceCount = document.getElementById("sentence-count");
-let digitCount = document.getElementById("digit-count");
+let textContentElement = document.getElementById("text");
+let charCountElement = document.getElementById("char-count");
+let wordCountElement = document.getElementById("word-count");
+let letterCountElement = document.getElementById("letter-count");
+let sentenceCountElement = document.getElementById("sentence-count");
+let digitCountElement = document.getElementById("digit-count");
 
-function renderText(domElt, text) {
-  domElt.innerText = text;
+function renderText(domElement, text) {
+  domElement.innerText = text;
 }
 
 function handleChar(text) {
-  return text.length;
+  // we are removing all line break so we don't count them as chars
+  return text.replaceAll(/\r?\n|\r/g, "").length;
 }
 
 function handleLetter(text) {
   let letterCount = 0;
 
   for (var i = 0; i < text.length; i++) {
-    if (/^[A-Za-z]+$/.test(text.charAt(i))) {
+    if (/^[A-Za-z]$/.test(text.charAt(i))) {
       letterCount += 1;
     }
   }
@@ -44,7 +45,6 @@ function handleSentence(text) {
 
   for (word of textArr) {
     // if any of the words end with one of the "end of sentence" symbols, and after that comes a space or a new line, then that was a sentence
-    console.log(word);
     if (/\w[.?!]+(\s|$)/.test(word)) {
       sentenceCount += 1;
     }
@@ -64,12 +64,12 @@ function handleDigit(text) {
   return digitCount;
 }
 
-textContent.addEventListener("input", (event) => {
-  const text = event.target.value.trim();
+textContentElement.addEventListener("input", (event) => {
+  const text = event.target.value;
 
-  renderText(charCount, handleChar(text));
-  renderText(letterCount, handleLetter(text));
-  renderText(wordCount, handleWord(text));
-  renderText(sentenceCount, handleSentence(text));
-  renderText(digitCount, handleDigit(text));
+  renderText(charCountElement, handleChar(text));
+  renderText(letterCountElement, handleLetter(text.trim()));
+  renderText(wordCountElement, handleWord(text.trim()));
+  renderText(sentenceCountElement, handleSentence(text.trim()));
+  renderText(digitCountElement, handleDigit(text.trim()));
 });
